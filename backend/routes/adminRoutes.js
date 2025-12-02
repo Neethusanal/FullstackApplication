@@ -1,5 +1,9 @@
 import express from 'express';
-const express = require('express')
+import {addProducts} from '../controller/adminController.js';
 const router = express.Router()
 
-router.post('/addProducts',admin)
+
+
+
+router.post('/addProducts',addProducts)
+export default router

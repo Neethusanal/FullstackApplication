@@ -1,15 +1,34 @@
-const productModel=require('../model/ProductModel')
+import productModel from "../model/ProductModel.js";
 
+export const addProducts = async (req, res) => {
+  try {
+    console.log(req.body);
 
+    const {
+      productName,
+      productCode,
+      price,
+      description,
+      category,
+      stockQuantity,
+      images,
+    } = req.body;
 
-module.exports.addProducts=async(req,res)=>{
-    try{
+    await productModel.create({
+      productName,
+      productCode,
+      price,
+      description,
+      category,
+      stockQuantity,
+      images,
+    });
 
-        const data=req.body;
-        console.log(data)
-
-    }catch(error)
-    {
-
-    }
-}
+    res.status(200).json({
+      message: "successfully added new product",
+      success: true,
+    });
+  } catch (err) {
+    res.status(400).json({ status: "error", message: err.message });
+  }
+};

@@ -1,10 +1,12 @@
 import express from 'express';
+import adminRoutes from "./routes/adminRoutes.js";
 
-const app = express();
-const adminRoutes =require('./routes/adminRoutes')
+
+const app=express();
 
 app.use(express.json());
+
+
+
+app.use('',adminRoutes)
 export default app;
-
-
-app.use('/amnin',adminRoutes)
