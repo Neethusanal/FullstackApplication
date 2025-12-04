@@ -1,12 +1,19 @@
 
 import mongoose from'mongoose'
+import express from'express';
 import dotenv from'dotenv'
-import app from './app.js'
 import connectionDB from './config/db.js';
+import adminRoutes from './routes/adminRoutes.js'
 
  const port=5000
  console.log(port)
 ;
+const app=express();
+
+app.use(express.json());
+app.use('/', adminRoutes)
+
+
 
 dotenv.config();
 connectionDB()

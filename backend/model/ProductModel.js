@@ -35,7 +35,7 @@ const productSchema = new mongoose.Schema(
   enum: ["Necklace", "Earrings", "Bangles", "Rings", "Bracelet", "Sets", "chokers", "Long Harams" ,"Other"],
 },
 
-subcategory: {
+subCategory: {
   type: String,
   default: "",
   
